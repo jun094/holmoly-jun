@@ -10,7 +10,7 @@ module.exports = {
     daisyui: {
         themes: [
             {
-                mytheme: {
+                holymolyTheme: {
                     // 적용 완료
                     primary: "#9DD2FE",
 
@@ -18,7 +18,7 @@ module.exports = {
                     secondary: "#D926A9",
                     accent: "#1FB2A6",
                     neutral: "#191D24",
-                    "base-100": "#2A303C",
+                    "base-100": "white",
                     info: "#3ABFF8",
                     success: "#36D399",
                     warning: "#FBBD23",
