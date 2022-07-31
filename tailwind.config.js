@@ -35,6 +35,9 @@ module.exports = {
                     warning: '#FBBD23',
                     error: '#F87272',
                 },
+                fontFamily: {
+                    poppins: ['Poppins', 'sans-serif'],
+                },
             },
         ],
     },
