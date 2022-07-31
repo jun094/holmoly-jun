@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-import Aside from 'components/modules/Aside'
-import Content from 'components/modules/Content'
+import Aside from '../modules/Aside'
+import Nav from '../modules/Nav'
 
-function Layout() {
+type LayoutProps = {
+    children: ReactNode
+}
+
+function Layout({ children }: LayoutProps) {
     return (
         <main className="drawer drawer-mobile">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-            <Content />
+            <section className="drawer-content">
+                <Nav />
+                {children}
+            </section>
+
             <Aside />
         </main>
     )
