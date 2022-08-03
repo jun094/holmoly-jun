@@ -1,12 +1,14 @@
-import * as React from "react";
+import React from 'react'
+
+import Layout from 'components/templates/Layout'
+import Content from 'components/modules/Content'
 
 function IndexPage() {
     return (
-        <>
-            <h1 className="text-3xl font-bold underline">123123</h1>
-            <button className="btn btn-primary">Button</button>
-        </>
-    );
+        <Layout>
+            <Content />
+        </Layout>
+    )
 }
 
-export default IndexPage;
+export default IndexPage
