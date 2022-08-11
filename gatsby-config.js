@@ -17,15 +17,6 @@ module.exports = {
         },
         'gatsby-plugin-postcss',
 
-        //*** Data Sourcing Plugin (ex. gatsby-transformer-remark로 Markdown 파일을  Markdown 노드로 변환하도록 도와줌)
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `contents`,
-                path: `${__dirname}/contents`,
-            },
-        },
-
         //*** Markdown Plugin (Markdown -> HTML 변환)
         {
             resolve: `gatsby-transformer-remark`,
@@ -65,5 +56,28 @@ module.exports = {
                 ],
             },
         },
+
+        //*** Data Sourcing Plugin (ex. gatsby-transformer-remark로 Markdown 파일을  Markdown 노드로 변환하도록 도와줌)
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `contents`,
+                path: `${__dirname}/contents`,
+            },
+        },
+
+        //*** Image Optimization Plugin
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                defaults: {
+                    formats: ['auto', 'webp'],
+                    quality: 100,
+                    placeholder: 'blurred',
+                },
+            },
+        },
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-image`,
     ],
 }
