@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'

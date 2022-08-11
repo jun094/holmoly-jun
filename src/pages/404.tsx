@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 function NotFoundPage() {
     return <h1>404 :(</h1>;
