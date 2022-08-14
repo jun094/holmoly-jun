@@ -22,7 +22,7 @@ function IndexPage({
                 <Content />
             </Layout.Content>
             <Layout.Side>
-                <Aside />
+                <Aside node={node} />
             </Layout.Side>
         </Layout>
     )

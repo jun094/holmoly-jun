@@ -11,7 +11,10 @@
         "baseUrl": "./src",
         "paths": {
             "components/*": ["./components/*"],
-            "hooks/*": ["./hooks/*"]
+            "hooks/*": ["./hooks/*"],
+            "styles/*": ["./styles/*"],
+            "pages/*": ["./pages/*"],
+            "types/*": ["./types/*"]
         },
         "esModuleInterop": true,
         "skipLibCheck": true,
