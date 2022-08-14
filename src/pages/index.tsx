@@ -17,15 +17,13 @@ function IndexPage({
 }: IndexPageProps) {
     return (
         <Layout>
-            <Layout.Top>
+            <Layout.Content>
                 <Nav />
-            </Layout.Top>
-            <Layout.Left>
-                <Aside />
-            </Layout.Left>
-            <Layout.Middle>
                 <Content />
-            </Layout.Middle>
+            </Layout.Content>
+            <Layout.Side>
+                <Aside />
+            </Layout.Side>
         </Layout>
     )
 }
