@@ -4,17 +4,20 @@ import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'
 import MenuItem from 'components/atoms/MenuItem'
 
-import { ContentsNodeType, ContentFrontmatterType } from 'types/contents.types'
+import {
+  ContentsListNodeType,
+  ContentFrontmatterType,
+} from 'types/contents.types'
 
 type AsideProps = {
-  menuList: ContentsNodeType[]
+  menuList: ContentsListNodeType[]
 }
 type menuType = ContentFrontmatterType & {
   id: string
   slug: string
 }
 
-const getMenu = (list: ContentsNodeType[]) => {
+const getMenu = (list: ContentsListNodeType[]) => {
   const categoryMap = new Map<string, menuType[]>()
 
   list.forEach(({ node: { fields, frontmatter, id } }) => {
@@ -48,8 +51,7 @@ function Aside({ menuList }: AsideProps) {
       <Logo />
 
       <Menu>
-        <MenuItem> Introduction</MenuItem>
-        <MenuItem> Series</MenuItem>
+        <MenuItem to="/"> Introduction</MenuItem>
       </Menu>
 
       <div className="h-4" />

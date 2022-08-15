@@ -13,7 +13,9 @@ export type ContentFrontmatterType = {
     publicURL: string
   }
 }
-export type ContentsNodeType = {
+
+//*** Contents List - 모든 컨텐츠
+export type ContentsListNodeType = {
   node: {
     id: string
     fields: {
@@ -22,28 +24,26 @@ export type ContentsNodeType = {
     frontmatter: ContentFrontmatterType
   }
 }
-export type ContentsMarkdownType = {
-  edges: ContentsNodeType[]
+export type ContentsListMarkdownType = {
+  edges: ContentsListNodeType[]
 }
 
-export type ContentsType = {
-  data: {
-    contentsList: ContentsMarkdownType
-  }
+export type ContentsListType = {
+  allMarkdownRemark: ContentsListMarkdownType
 }
 
-//*** Content
-export type ContentNodeType = {
+//*** Contents Item - 특정 컨텐츠
+export type ContentItemNodeType = {
   node: {
     html: string
     frontmatter: ContentFrontmatterType
   }
 }
-export type ContentMarkdownType = {
-  edges: ContentNodeType[]
+export type ContentItemMarkdownType = {
+  edges: ContentItemNodeType[]
 }
-export type ContentType = {
+export type ContentItemType = {
   data: {
-    contentData: ContentsMarkdownType
+    allMarkdownRemark: ContentItemMarkdownType
   }
 }
