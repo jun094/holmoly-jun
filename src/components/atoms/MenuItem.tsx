@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 
 type MenuItemProps = {
-    to: string
+    to?: string
     children: React.ReactNode
 }
 function MenuItem({ to, children }: MenuItemProps) {

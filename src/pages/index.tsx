@@ -33,7 +33,7 @@ export default IndexPage
 export const getContentsList = graphql`
     query getContentsList {
         contentsData: allMarkdownRemark(
-            sort: { order: DESC, fields: [frontmatter___date] }
+            sort: { order: ASC, fields: [frontmatter___title] }
         ) {
             edges {
                 node {

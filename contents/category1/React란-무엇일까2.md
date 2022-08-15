@@ -1,6 +1,6 @@
 ---
 date: '2022-08-11'
-title: 'Test'
+title: 'TITLE 3'
 summary: 'BlaBlaBlaBlaBlaBlaBlaBla'
 category : 'category1'
 thumbnail: './images/thumbnail.png'

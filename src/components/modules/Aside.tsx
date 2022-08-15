@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'gatsby'
 
 import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'
@@ -14,45 +15,34 @@ type menuType = ContentType & {
     slug: string
 }
 
+const getMenu = (list: ContentsNodeType[]) => {
+    const categoryMap = new Map<string, menuType[]>()
+
+    list.forEach(({ node: { fields, frontmatter, id } }) => {
+        const category: string = frontmatter?.category || ''
+        const menuInfo: menuType = {
+            id,
+            slug: fields.slug,
+            title: frontmatter.title,
+            summary: frontmatter.summary,
+            date: frontmatter.date,
+        }
+
+        if (categoryMap.has(category)) {
+            const arr: menuType[] = categoryMap.get(category) || []
+            arr.push(menuInfo)
+
+            categoryMap.set(category, arr)
+        } else {
+            categoryMap.set(category, [menuInfo])
+        }
+    })
+
+    return [...categoryMap]
+}
+
 function Aside({ node: menuList }: AsideProps) {
-    const [menu, setMenu] = useState<[string, menuType[]][]>([
-        [
-            'id',
-            [
-                {
-                    id: 'id',
-                    slug: 'slug',
-                    title: 'title',
-                    summary: 'summary',
-                    date: 'date',
-                },
-            ],
-        ],
-    ])
-
-    useEffect(() => {
-        const categoryMap = new Map<string, menuType[]>()
-        menuList.forEach(({ node: { fields, frontmatter, id } }) => {
-            const category: string = frontmatter?.category || ''
-            const menuInfo: menuType = {
-                id,
-                slug: fields.slug,
-                title: frontmatter.title,
-                summary: frontmatter.summary,
-                date: frontmatter.date,
-            }
-
-            if (categoryMap.has(category)) {
-                const arr: menuType[] = categoryMap.get(category) || []
-                arr.push(menuInfo)
-
-                categoryMap.set(category, arr)
-            } else {
-                categoryMap.set(category, [menuInfo])
-            }
-        })
-        setMenu([...categoryMap])
-    }, [])
+    const menu = getMenu(menuList)
 
     return (
         <div className="bg-base-200 w-80">
@@ -65,68 +55,20 @@ function Aside({ node: menuList }: AsideProps) {
 
             <div className="h-4" />
 
-            <Menu title="네트워크">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="React">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
+            {menu.map(list => {
+                const menuCategory = list[0]
+                const menuItem = list[1]
 
-            <Menu title="네트워크">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="React">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-
-            <Menu title="네트워크">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="React">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="네트워크">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="React">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="네트워크">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="React">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="네트워크">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
-            <Menu title="React">
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-                <MenuItem> item 1</MenuItem>
-            </Menu>
+                return (
+                    <Menu key={menuCategory} category={menuCategory}>
+                        {menuItem.map(({ id, slug, title }) => (
+                            <MenuItem key={id} to={slug}>
+                                {title}
+                            </MenuItem>
+                        ))}
+                    </Menu>
+                )
+            })}
         </div>
     )
 }

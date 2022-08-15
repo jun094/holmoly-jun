@@ -1,17 +1,17 @@
 import React, { ReactNode } from 'react'
 
 type MenuProps = {
-    title?: string
+    category?: string
     children: ReactNode
 }
 
-function Menu({ title, children }: MenuProps) {
+function Menu({ category, children }: MenuProps) {
     return (
         <ul className="menu menu-compact flex flex-col p-0 px-4">
             <li />
-            {title && (
+            {category && (
                 <li className="menu-title">
-                    <span>{title}</span>
+                    <span>{category}</span>
                 </li>
             )}
 
