@@ -2,7 +2,7 @@
 date: '2022-08-11'
 title: 'TITLE 1'
 summary: 'BlaBlaBlaBlaBlaBlaBlaBla'
-category : 'category1'
+category: 'category1'
 thumbnail: './images/thumbnail.png'
 ---
 
@@ -17,5 +17,10 @@ BlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBla
 BlaBlaBlaBlaBlaBlaBlaBla
 
 BlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBlaBla
+
+```typescript
+const a = 2
+console.log(`hi!!`)
+```
 
 ---

@@ -4,72 +4,72 @@ import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'
 import MenuItem from 'components/atoms/MenuItem'
 
-import { ContentsNodeType, ContentType } from 'types/contents.types'
+import { ContentsNodeType, ContentFrontmatterType } from 'types/contents.types'
 
 type AsideProps = {
-    node: ContentsNodeType[]
+  menuList: ContentsNodeType[]
 }
-type menuType = ContentType & {
-    id: string
-    slug: string
+type menuType = ContentFrontmatterType & {
+  id: string
+  slug: string
 }
 
 const getMenu = (list: ContentsNodeType[]) => {
-    const categoryMap = new Map<string, menuType[]>()
+  const categoryMap = new Map<string, menuType[]>()
 
-    list.forEach(({ node: { fields, frontmatter, id } }) => {
-        const category: string = frontmatter?.category || ''
-        const menuInfo: menuType = {
-            id,
-            slug: fields.slug,
-            title: frontmatter.title,
-            summary: frontmatter.summary,
-            date: frontmatter.date,
-        }
+  list.forEach(({ node: { fields, frontmatter, id } }) => {
+    const category: string = frontmatter?.category || ''
+    const menuInfo: menuType = {
+      id,
+      slug: fields.slug,
+      title: frontmatter.title,
+      summary: frontmatter.summary,
+      date: frontmatter.date,
+    }
 
-        if (categoryMap.has(category)) {
-            const arr: menuType[] = categoryMap.get(category) || []
-            arr.push(menuInfo)
+    if (categoryMap.has(category)) {
+      const arr: menuType[] = categoryMap.get(category) || []
+      arr.push(menuInfo)
 
-            categoryMap.set(category, arr)
-        } else {
-            categoryMap.set(category, [menuInfo])
-        }
-    })
+      categoryMap.set(category, arr)
+    } else {
+      categoryMap.set(category, [menuInfo])
+    }
+  })
 
-    return [...categoryMap]
+  return [...categoryMap]
 }
 
-function Aside({ node: menuList }: AsideProps) {
-    const menu = getMenu(menuList)
+function Aside({ menuList }: AsideProps) {
+  const menu = getMenu(menuList)
 
-    return (
-        <div className="bg-base-200 w-80">
-            <Logo />
+  return (
+    <div className="bg-base-200 w-80">
+      <Logo />
 
-            <Menu>
-                <MenuItem> Introduction</MenuItem>
-                <MenuItem> Series</MenuItem>
-            </Menu>
+      <Menu>
+        <MenuItem> Introduction</MenuItem>
+        <MenuItem> Series</MenuItem>
+      </Menu>
 
-            <div className="h-4" />
+      <div className="h-4" />
 
-            {menu.map(list => {
-                const menuCategory = list[0]
-                const menuItem = list[1]
+      {menu.map(list => {
+        const menuCategory = list[0]
+        const menuItem = list[1]
 
-                return (
-                    <Menu key={menuCategory} category={menuCategory}>
-                        {menuItem.map(({ id, slug, title }) => (
-                            <MenuItem key={id} to={slug}>
-                                {title}
-                            </MenuItem>
-                        ))}
-                    </Menu>
-                )
-            })}
-        </div>
-    )
+        return (
+          <Menu key={menuCategory} category={menuCategory}>
+            {menuItem.map(({ id, slug, title }) => (
+              <MenuItem key={id} to={slug}>
+                {title}
+              </MenuItem>
+            ))}
+          </Menu>
+        )
+      })}
+    </div>
+  )
 }
 
 export default Aside
