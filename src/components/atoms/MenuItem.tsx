@@ -2,19 +2,19 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 
 type MenuItemProps = {
-    to?: string
-    children: React.ReactNode
+  to?: string
+  children: React.ReactNode
 }
 function MenuItem({ to, children }: MenuItemProps) {
-    return (
-        <li>
-            <Link to={to}>{children}</Link>
-        </li>
-    )
+  return (
+    <li>
+      <Link to={to}>{children}</Link>
+    </li>
+  )
 }
 
 MenuItem.defaultProps = {
-    to: '/#',
+  to: '/#',
 }
 
 export default MenuItem

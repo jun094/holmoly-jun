@@ -31,3 +31,55 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         createNodeField({ node, name: 'slug', value: slug })
     }
 }
+
+//*** 동적 페이지 생성 -> /src/dynamic_pages
+exports.createPages = async ({ actions, graphql, reporter }) => {
+    const { createPage } = actions
+
+    // 1. 마크다운 데이터 추출하는 쿼리문 작성
+    const queryAllMarkdownData = await graphql(
+        `
+            {
+                allMarkdownRemark(
+                    sort: { order: ASC, fields: [frontmatter___title] }
+                ) {
+                    edges {
+                        node {
+                            fields {
+                                slug
+                            }
+                        }
+                    }
+                }
+            }
+        `,
+    )
+
+    // 2. 쿼리문 에러 핸드링
+    if (queryAllMarkdownData.errors) {
+        reporter.panicOnBuild(`Error while running query`)
+        return
+    }
+
+    // 3. 동적 페이지 - content 불러오기
+    const ContentTemplate = path.resolve(
+        __dirname,
+        'src/dynamic_pages/content.tsx',
+    )
+
+    // 4. 동적 페이지 생성
+    const createContentPage = ({
+        node: {
+            fields: { slug },
+        },
+    }) => {
+        const pageOptions = {
+            path: slug,
+            component: ContentTemplate,
+            context: { slug },
+        }
+
+        createPage(pageOptions)
+    }
+    queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(createContentPage)
+}

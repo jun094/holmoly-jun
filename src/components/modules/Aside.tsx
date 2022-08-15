@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'
