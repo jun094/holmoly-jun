@@ -1,23 +1,27 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "allowJs": true,
-        "jsx": "preserve",
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "baseUrl": "./src",
-        "paths": {
-            "components/*": ["./components/*"],
-            "hooks/*": ["./hooks/*"]
-        },
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "preserve",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["./components/*"],
+      "hooks/*": ["./hooks/*"],
+      "styles/*": ["./styles/*"],
+      "pages/*": ["./pages/*"],
+      "dynamic_pages/*": ["./dynamic_pages/*"],
+      "types/*": ["./types/*"]
     },
-    "include": ["src/**/*.tsx"],
-    "exclude": ["node_modules"]
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }
