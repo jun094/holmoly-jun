@@ -16,7 +16,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
-    `gatsby-plugin-graphql-component`,
 
     //*** Markdown Plugin (Markdown -> HTML 변환)
     {

@@ -1,4 +1,6 @@
 import React from 'react'
+import { CgReadme } from 'react-icons/cg'
+import { MdPublishedWithChanges } from 'react-icons/md'
 
 import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'
@@ -51,7 +53,14 @@ function Aside({ menuList }: AsideProps) {
       <Logo />
 
       <Menu>
-        <MenuItem to="/"> Introduction</MenuItem>
+        <MenuItem to="/">
+          <CgReadme size="1.5rem" />
+          <span className="flex-1">README</span>
+        </MenuItem>
+        <MenuItem to="/changelog">
+          <MdPublishedWithChanges size="1.5rem" />
+          <span className="flex-1">CHANGELOG</span>
+        </MenuItem>
       </Menu>
 
       <div className="h-4" />
