@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
-
-const DRAWER_TOGGLER = 'drawer-toggler'
+import { DRAWER_TOGGLER } from 'constants/index'
 
 type ChildrenType = {
   children: ReactNode

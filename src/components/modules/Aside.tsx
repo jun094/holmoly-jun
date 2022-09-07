@@ -1,6 +1,5 @@
 import React from 'react'
-import { CgReadme } from 'react-icons/cg'
-import { MdPublishedWithChanges } from 'react-icons/md'
+import { ReadOutlined, ClockCircleOutlined } from '@ant-design/icons'
 
 import Logo from 'components/atoms/Logo'
 import Menu from 'components/atoms/Menu'
@@ -54,11 +53,12 @@ function Aside({ menuList }: AsideProps) {
 
       <Menu>
         <MenuItem to="/">
-          <CgReadme size="1.5rem" />
+          <ReadOutlined style={{ fontSize: '1.5rem' }} />
+
           <span className="flex-1">README</span>
         </MenuItem>
         <MenuItem to="/changelog">
-          <MdPublishedWithChanges size="1.5rem" />
+          <ClockCircleOutlined style={{ fontSize: '1.5rem' }} />
           <span className="flex-1">CHANGELOG</span>
         </MenuItem>
       </Menu>
