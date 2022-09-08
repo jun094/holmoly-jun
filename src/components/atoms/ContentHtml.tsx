@@ -7,7 +7,7 @@ type ContentHtmlProps = {
 function ContentHtml({ html }: ContentHtmlProps) {
   return (
     <article
-      className="prose px-2 py-24 my-0 mx-auto"
+      className="prose px-3 py-24 my-0 mx-auto"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )
