@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { ReadOutlined, ClockCircleOutlined } from '@ant-design/icons'
 
 import Logo from '_components/atoms/Logo'
@@ -18,34 +18,34 @@ type menuType = ContentFrontmatterType & {
   slug: string
 }
 
-const getMenu = (list: ContentsListNodeType[]) => {
-  const categoryMap = new Map<string, menuType[]>()
-
-  list.forEach(({ node: { fields, frontmatter, id } }) => {
-    const category: string = frontmatter?.category || ''
-    const menuInfo: menuType = {
-      id,
-      slug: fields.slug,
-      title: frontmatter.title,
-      summary: frontmatter.summary,
-      date: frontmatter.date,
-    }
-
-    if (categoryMap.has(category)) {
-      const arr: menuType[] = categoryMap.get(category) || []
-      arr.push(menuInfo)
-
-      categoryMap.set(category, arr)
-    } else {
-      categoryMap.set(category, [menuInfo])
-    }
-  })
-
-  return [...categoryMap]
-}
-
 function Aside({ menuList }: AsideProps) {
-  const menu = getMenu(menuList)
+  const menuListByCategory = () => {
+    const categoryMap = new Map<string, menuType[]>()
+
+    menuList.forEach(({ node: { fields, frontmatter, id } }) => {
+      const category: string = frontmatter?.category || ''
+      const menuInfo: menuType = {
+        id,
+        slug: fields.slug,
+        title: frontmatter.title,
+        summary: frontmatter.summary,
+        date: frontmatter.date,
+      }
+
+      if (categoryMap.has(category)) {
+        const arr: menuType[] = categoryMap.get(category) || []
+        arr.push(menuInfo)
+
+        categoryMap.set(category, arr)
+      } else {
+        categoryMap.set(category, [menuInfo])
+      }
+    })
+
+    return [...categoryMap]
+  }
+
+  const menuListedByCategory = useMemo(menuListByCategory, [menuList])
 
   return (
     <div className="bg-base-200 w-80">
@@ -65,7 +65,7 @@ function Aside({ menuList }: AsideProps) {
 
       <div className="h-4" />
 
-      {menu.map(list => {
+      {menuListedByCategory.map(list => {
         const menuCategory = list[0]
         const menuItem = list[1]
 
