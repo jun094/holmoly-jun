@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { ContentsListType, ContentsListNodeType } from 'types/contents.types'
+import { ContentsListType, ContentsListNodeType } from '_types/contents.types'
 
 function useContentsList(): ContentsListNodeType[] {
   const {

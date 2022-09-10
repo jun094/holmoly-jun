@@ -1,14 +1,14 @@
 import React from 'react'
 import { ReadOutlined, ClockCircleOutlined } from '@ant-design/icons'
 
-import Logo from 'components/atoms/Logo'
-import Menu from 'components/atoms/Menu'
-import MenuItem from 'components/atoms/MenuItem'
+import Logo from '_components/atoms/Logo'
+import Menu from '_components/atoms/Menu'
+import MenuItem from '_components/atoms/MenuItem'
 
 import {
   ContentsListNodeType,
   ContentFrontmatterType,
-} from 'types/contents.types'
+} from '_types/contents.types'
 
 type AsideProps = {
   menuList: ContentsListNodeType[]

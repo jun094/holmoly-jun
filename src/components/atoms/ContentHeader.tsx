@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { ContentThumbnailType } from 'types/contents.types'
+import { ContentThumbnailType } from '_types/contents.types'
 
 type ContentHeaderProps = {
   title: string

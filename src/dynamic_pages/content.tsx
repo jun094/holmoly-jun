@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import PageWrapper from 'components/templates/PageWrapper'
-import ContentHeader from 'components/atoms/ContentHeader'
-import ContentHtml from 'components/atoms/ContentHtml'
+import PageWrapper from '_components/templates/PageWrapper'
+import ContentHeader from '_components/atoms/ContentHeader'
+import ContentHtml from '_components/atoms/ContentHtml'
 
-import { ContentItemType } from '../types/contents.types'
+import { ContentItemType } from '_types/contents.types'
 
 type ContentPageProps = ContentItemType
 

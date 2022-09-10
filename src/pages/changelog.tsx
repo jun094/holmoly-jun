@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import PageWrapper from 'components/templates/PageWrapper'
+import PageWrapper from '_components/templates/PageWrapper'
 
 function IndexPage() {
   return (

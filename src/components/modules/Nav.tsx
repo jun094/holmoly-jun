@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { GithubOutlined } from '@ant-design/icons'
 
-import Avatar from 'components/atoms/Avatar'
-import HamburgerButton from 'components/atoms/HamburgerButton'
-import { DRAWER_TOGGLER } from 'constants/index'
+import Avatar from '_components/atoms/Avatar'
+import HamburgerButton from '_components/atoms/HamburgerButton'
+import { DRAWER_TOGGLER } from '_constants/index'
 
 function Nav() {
   return (
