@@ -5,12 +5,7 @@ type ContentHtmlProps = {
 }
 
 function ContentHtml({ html }: ContentHtmlProps) {
-  return (
-    <article
-      className="prose px-3 py-24 my-0 mx-auto"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  )
+  return <div dangerouslySetInnerHTML={{ __html: html }} />
 }
 
 ContentHtml.defaultProps = {
