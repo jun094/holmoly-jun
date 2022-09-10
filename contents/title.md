@@ -3,7 +3,6 @@ date: '2022-08-11'
 title: 'title'
 summary: 'summarysummarysummarysummary'
 category: 'category'
-thumbnail: './images/thumbnail.png'
 ---
 
 # 개요

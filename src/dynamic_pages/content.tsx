@@ -15,15 +15,12 @@ function ContentPage({
   },
 }: ContentPageProps) {
   const { html, frontmatter } = edges[0].node
-  const { title, date } = frontmatter
-
-  console.log('title', title)
-  console.log('date', date)
+  const { title, date, thumbnail } = frontmatter
 
   return (
     <PageWrapper>
       <article className="prose px-3 py-24 my-0 mx-auto">
-        <ContentHeader title={title} date={date} />
+        <ContentHeader title={title} date={date} image={thumbnail} />
         <ContentHtml html={html} />
       </article>
     </PageWrapper>
@@ -42,7 +39,7 @@ export const queryMarkdownDataBySlug = graphql`
             title
             category
             summary
-            date(formatString: "YYYY.MM.DD.")
+            date(formatString: "MMMM DD, YYYY")
             thumbnail {
               publicURL
               childImageSharp {

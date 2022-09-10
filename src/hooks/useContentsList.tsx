@@ -18,7 +18,7 @@ function useContentsList(): ContentsListNodeType[] {
               title
               category
               summary
-              date(formatString: "YYYY.MM.DD.")
+              date(formatString: "MMMM DD, YYYY")
               thumbnail {
                 publicURL
               }
