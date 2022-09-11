@@ -73,7 +73,6 @@ function Aside({ menuList }: AsideProps) {
       <Menu>
         <MenuItem to="/">
           <ReadOutlined style={{ fontSize: '1.5rem' }} />
-
           <span className="flex-1">README</span>
         </MenuItem>
         <MenuItem to="/changelog">
@@ -90,8 +89,8 @@ function Aside({ menuList }: AsideProps) {
 
         return (
           <Menu key={menuCategory} category={menuCategory}>
-            {menuItem.map(({ id, slug, title }) => (
-              <MenuItem key={id} to={slug}>
+            {menuItem.map(({ id, slug, title, hTags }) => (
+              <MenuItem key={id} to={slug} subMenu={hTags}>
                 {title}
               </MenuItem>
             ))}
