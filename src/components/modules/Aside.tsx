@@ -8,32 +8,51 @@ import MenuItem from '_components/atoms/MenuItem'
 import {
   ContentsListNodeType,
   ContentFrontmatterType,
+  ContentHtmlAstChildrenType,
 } from '_types/contents.types'
 
+type listType = {
+  id: string
+  slug: string
+  hTags: string[]
+} & ContentFrontmatterType
 type AsideProps = {
   menuList: ContentsListNodeType[]
 }
-type menuType = ContentFrontmatterType & {
-  id: string
-  slug: string
-}
 
 function Aside({ menuList }: AsideProps) {
-  const menuListByCategory = () => {
-    const categoryMap = new Map<string, menuType[]>()
+  const findHTags = (list: ContentHtmlAstChildrenType[]): string[] => {
+    const hTags: string[] = []
 
-    menuList.forEach(({ node: { fields, frontmatter, id } }) => {
-      const category: string = frontmatter?.category || ''
-      const menuInfo: menuType = {
+    list.forEach(({ tagName, children }: ContentHtmlAstChildrenType) => {
+      if ((tagName === 'h1' || tagName === 'h2') && children) {
+        hTags.push(children[0].value)
+      }
+    })
+
+    return hTags
+  }
+
+  const menuListByCategory = () => {
+    const categoryMap = new Map<string | undefined, listType[]>()
+
+    menuList.forEach(({ node: { fields, frontmatter, id, htmlAst } }) => {
+      const { slug } = fields
+      const { title, summary, date, category } = frontmatter
+      const { children: htmlAstArray } = htmlAst
+
+      const hTags: string[] = findHTags(htmlAstArray)
+      const menuInfo: listType = {
         id,
-        slug: fields.slug,
-        title: frontmatter.title,
-        summary: frontmatter.summary,
-        date: frontmatter.date,
+        slug,
+        hTags,
+        title,
+        summary,
+        date,
       }
 
       if (categoryMap.has(category)) {
-        const arr: menuType[] = categoryMap.get(category) || []
+        const arr: listType[] = categoryMap.get(category) || []
         arr.push(menuInfo)
 
         categoryMap.set(category, arr)

@@ -23,6 +23,7 @@ function useContentsList(): ContentsListNodeType[] {
                 publicURL
               }
             }
+            htmlAst
           }
         }
       }

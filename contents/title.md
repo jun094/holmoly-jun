@@ -1,6 +1,6 @@
 ---
 date: '2022-08-11'
-title: 'title'
+title: '테스트 제목'
 summary: 'summarysummarysummarysummary'
 category: 'category'
 ---
