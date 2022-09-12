@@ -26,7 +26,9 @@ function Aside({ menuList }: AsideProps) {
     menuList.forEach(
       ({ node: { fields, frontmatter, id, tableOfContents } }) => {
         const { slug } = fields
-        const { title, summary, date, category } = frontmatter
+        const category = slug.split('/')[1]
+
+        const { title, summary, date } = frontmatter
 
         const menuInfo: listType = {
           title,

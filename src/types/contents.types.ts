@@ -13,7 +13,6 @@ export type ContentFrontmatterType = {
   title: string
   summary: string
   date: string
-  category?: string
   thumbnail?: ContentThumbnailType
 }
 

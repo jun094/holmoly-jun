@@ -1,8 +1,7 @@
 ---
 date: '2022-08-11'
-title: '테스트 제목2'
+title: '테스트 제목'
 summary: 'summarysummarysummarysummary'
-category: 'category'
 ---
 
 # h1

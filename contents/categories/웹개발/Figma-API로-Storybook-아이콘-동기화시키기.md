@@ -2,8 +2,7 @@
 date: '2022-08-11'
 title: 'Figma API로 Storybook 아이콘 동기화시키기'
 summary: 'Figma API로 Storybook 과 Figma의 아이콘을 동기화시키는 작업을 진행해봤습니다.'
-category: 'React'
-thumbnail: './images/thumbnail.png'
+thumbnail: '../../images/thumbnail.png'
 ---
 
 # 개요
@@ -128,7 +127,7 @@ GET https://api.figma.com/v1/files/ :FileKey /nodes?ids= :NodeId
 
 > API를 요청하기 위해서는 헤더의 `X-FIGMA-TOKEN`에 Figma Token을 실어서 보내야합니다.
 
-```jason
+```json
 {
   "name": "MyIcons",
   "nodes": {

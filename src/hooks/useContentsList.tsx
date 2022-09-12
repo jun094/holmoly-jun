@@ -16,7 +16,6 @@ function useContentsList(): ContentsListNodeType[] {
             }
             frontmatter {
               title
-              category
               summary
               date(formatString: "MMMM DD, YYYY")
               thumbnail {
