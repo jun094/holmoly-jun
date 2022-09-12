@@ -37,7 +37,6 @@ export const queryMarkdownDataBySlug = graphql`
           html
           frontmatter {
             title
-            category
             summary
             date(formatString: "MMMM DD, YYYY")
             thumbnail {

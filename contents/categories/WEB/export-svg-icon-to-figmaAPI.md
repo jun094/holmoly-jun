@@ -1,8 +1,8 @@
 ---
-date: '2022-08-11'
-title: 'Figma API로 Storybook 아이콘 동기화시키기'
-summary: 'Figma API로 Storybook 과 Figma의 아이콘을 동기화시키는 작업을 진행해봤습니다.'
-thumbnail: '../../images/thumbnail.png'
+date: '2022-04-24'
+title: 'Figma API로 아이콘 추출하기'
+summary: 'Figma API로 Storybook과 Figma의 아이콘을 동기화시키는 작업을 진행해봤습니다.'
+thumbnail: './images/export-svg-icon-to-figmaAPI-thumbnail.png'
 ---
 
 # 개요
