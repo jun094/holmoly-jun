@@ -8,58 +8,46 @@ import MenuItem from '_components/atoms/MenuItem'
 import {
   ContentsListNodeType,
   ContentFrontmatterType,
-  ContentHtmlAstChildrenType,
 } from '_types/contents.types'
 
 type listType = {
   id: string
   slug: string
-  hTags: string[]
+  tableOfContents: string
 } & ContentFrontmatterType
 type AsideProps = {
   menuList: ContentsListNodeType[]
 }
 
 function Aside({ menuList }: AsideProps) {
-  const findHTags = (list: ContentHtmlAstChildrenType[]): string[] => {
-    const hTags: string[] = []
-
-    list.forEach(({ tagName, children }: ContentHtmlAstChildrenType) => {
-      if ((tagName === 'h1' || tagName === 'h2') && children) {
-        hTags.push(children[0].value)
-      }
-    })
-
-    return hTags
-  }
-
   const menuListByCategory = () => {
     const categoryMap = new Map<string | undefined, listType[]>()
 
-    menuList.forEach(({ node: { fields, frontmatter, id, htmlAst } }) => {
-      const { slug } = fields
-      const { title, summary, date, category } = frontmatter
-      const { children: htmlAstArray } = htmlAst
+    menuList.forEach(
+      ({ node: { fields, frontmatter, id, tableOfContents } }) => {
+        const { slug } = fields
+        const { title, summary, date, category } = frontmatter
 
-      const hTags: string[] = findHTags(htmlAstArray)
-      const menuInfo: listType = {
-        id,
-        slug,
-        hTags,
-        title,
-        summary,
-        date,
-      }
+        const menuInfo: listType = {
+          title,
+          summary,
+          date,
 
-      if (categoryMap.has(category)) {
-        const arr: listType[] = categoryMap.get(category) || []
-        arr.push(menuInfo)
+          id,
+          slug,
+          tableOfContents,
+        }
 
-        categoryMap.set(category, arr)
-      } else {
-        categoryMap.set(category, [menuInfo])
-      }
-    })
+        if (categoryMap.has(category)) {
+          const arr: listType[] = categoryMap.get(category) || []
+          arr.push(menuInfo)
+
+          categoryMap.set(category, arr)
+        } else {
+          categoryMap.set(category, [menuInfo])
+        }
+      },
+    )
 
     return [...categoryMap]
   }
@@ -67,7 +55,7 @@ function Aside({ menuList }: AsideProps) {
   const menuListedByCategory = useMemo(menuListByCategory, [menuList])
 
   return (
-    <div className="bg-base-200 w-80">
+    <div className="bg-base-200 w-80 pb-4">
       <Logo />
 
       <Menu>
@@ -89,8 +77,8 @@ function Aside({ menuList }: AsideProps) {
 
         return (
           <Menu key={menuCategory} category={menuCategory}>
-            {menuItem.map(({ id, slug, title, hTags }) => (
-              <MenuItem key={id} to={slug} subMenu={hTags}>
+            {menuItem.map(({ id, slug, title, tableOfContents }) => (
+              <MenuItem key={id} to={slug} tableOfContents={tableOfContents}>
                 {title}
               </MenuItem>
             ))}

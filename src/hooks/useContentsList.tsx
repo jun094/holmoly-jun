@@ -23,7 +23,7 @@ function useContentsList(): ContentsListNodeType[] {
                 publicURL
               }
             }
-            htmlAst
+            tableOfContents(maxDepth: 2)
           }
         }
       }

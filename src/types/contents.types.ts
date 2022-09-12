@@ -1,20 +1,5 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-//*** Contents Html Abstract Syntax Tree
-export type ContentHtmlAstChildrenType = {
-  type: string
-  tagName?: string
-  value?: string
-  children?: { type: string; value: string }[]
-}
-export type ContentHtmlAstType = {
-  type: string
-  children: ContentHtmlAstChildrenType[]
-  data: {
-    quirksMode: boolean
-  }
-}
-
 //*** Contents thumbnail 이미지
 export type ContentThumbnailType = {
   childImageSharp: {
@@ -40,7 +25,7 @@ export type ContentsListNodeType = {
       slug: string
     }
     frontmatter: ContentFrontmatterType
-    htmlAst: ContentHtmlAstType
+    tableOfContents: string
   }
 }
 export type ContentsListMarkdownType = {

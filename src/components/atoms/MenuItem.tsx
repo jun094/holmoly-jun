@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import cn from 'classnames'
+import ContentHtml from './ContentHtml'
 
 type MenuItemProps = {
   to: string
-  subMenu?: string[]
+  tableOfContents?: string
   children: React.ReactNode
 }
-function MenuItem({ to, children, subMenu }: MenuItemProps) {
+function MenuItem({ to, tableOfContents, children }: MenuItemProps) {
   const [isActive, setIsActive] = useState<boolean>(false)
 
   useEffect(() => {
@@ -25,14 +26,14 @@ function MenuItem({ to, children, subMenu }: MenuItemProps) {
         </Link>
       </li>
 
-      {subMenu && (
-        <>
-          {subMenu.map(item => (
-            <li className={cn(isActive ? 'd-flex' : 'hidden')}>
-              <p className="text-xs2 px-6">{item}</p>
-            </li>
-          ))}
-        </>
+      {tableOfContents && (
+        <div className={cn(isActive ? 'd-flex' : 'hidden')}>
+          <div className="mt-2" />
+          <ContentHtml
+            className="text-xs2 text-info px-2 [&_*]:p-0 [&_*]:w-full [&_a]:px-4 [&_a]:py-2"
+            html={tableOfContents}
+          />
+        </div>
       )}
     </>
   )
