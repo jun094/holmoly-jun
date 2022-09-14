@@ -19,7 +19,7 @@ function ContentPage({
 
   return (
     <PageWrapper>
-      <article className="prose px-3 py-24 my-0 mx-auto">
+      <article className="prose px-4 py-24 my-0 mx-auto">
         <ContentHeader title={title} date={date} image={thumbnail} />
         <ContentHtml html={html} />
       </article>

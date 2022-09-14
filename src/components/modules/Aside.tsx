@@ -60,6 +60,7 @@ function Aside({ menuList }: AsideProps) {
     <div className="bg-base-200 w-80 pb-4">
       <Logo />
 
+      <div className="h-4 lg:hidden" />
       <Menu>
         <MenuItem to="/">
           <ReadOutlined style={{ fontSize: '1.5rem' }} />
