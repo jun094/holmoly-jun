@@ -10,7 +10,7 @@ function Menu({ category, children }: MenuProps) {
     <ul className="menu menu-compact flex flex-col p-0 px-4">
       <li />
       {category && (
-        <li className="menu-title">
+        <li className="menu-title mb-2">
           <span>{category}</span>
         </li>
       )}

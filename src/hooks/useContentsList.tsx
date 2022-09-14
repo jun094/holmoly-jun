@@ -1,13 +1,13 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { ContentsListType, ContentsListNodeType } from 'types/contents.types'
+import { ContentsListType, ContentsListNodeType } from '_types/contents.types'
 
 function useContentsList(): ContentsListNodeType[] {
   const {
     allMarkdownRemark: { edges },
   }: ContentsListType = useStaticQuery(graphql`
     query getContentsList {
-      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
         edges {
           node {
             id
@@ -16,13 +16,13 @@ function useContentsList(): ContentsListNodeType[] {
             }
             frontmatter {
               title
-              category
               summary
-              date(formatString: "YYYY.MM.DD.")
+              date(formatString: "MMMM DD, YYYY")
               thumbnail {
                 publicURL
               }
             }
+            tableOfContents(maxDepth: 2)
           }
         }
       }

@@ -1,12 +1,12 @@
 import * as React from 'react'
 
-import Layout from 'components/templates/Layout'
-import Aside from 'components/modules/Aside'
-import Nav from 'components/modules/Nav'
+import Layout from '_components/templates/Layout'
+import Aside from '_components/modules/Aside'
+import Nav from '_components/modules/Nav'
 
-import useContentsList from 'hooks/useContentsList'
+import useContentsList from '_hooks/useContentsList'
 
-import { ContentsListNodeType } from 'types/contents.types'
+import { ContentsListNodeType } from '_types/contents.types'
 
 type PageWrapperProps = {
   children: React.ReactNode

@@ -17,21 +17,16 @@ module.exports = {
     },
     'gatsby-plugin-postcss',
 
-    //*** Markdown Plugin (Markdown -> HTML 변환)
+    //*** Markdown Plugin (Markdown -> HTML 변환 및 마크다운 관련 유틸 라이브러리)
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-smartypants',
             options: {
               dashes: 'oldschool',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
             },
           },
           {
@@ -51,6 +46,13 @@ module.exports = {
             options: {
               target: '_blank',
               rel: 'nofollow',
+            },
+          },
+          // NOTE: remark 라이브러리 중에 가장 마지막에 호출 !
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
             },
           },
         ],

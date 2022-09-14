@@ -11,13 +11,13 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
     output,
     resolve: {
       alias: {
-        components: path.resolve(__dirname, 'src/components'),
-        constants: path.resolve(__dirname, 'src/constants'),
-        hooks: path.resolve(__dirname, 'src/hooks'),
-        styles: path.resolve(__dirname, 'src/styles'),
-        pages: path.resolve(__dirname, 'src/pages'),
-        dynamic_pages: path.resolve(__dirname, 'src/dynamic_pages'),
-        types: path.resolve(__dirname, 'src/types'),
+        _components: path.resolve(__dirname, 'src/components'),
+        _constants: path.resolve(__dirname, 'src/constants'),
+        _hooks: path.resolve(__dirname, 'src/hooks'),
+        _styles: path.resolve(__dirname, 'src/styles'),
+        _pages: path.resolve(__dirname, 'src/pages'),
+        _dynamic_pages: path.resolve(__dirname, 'src/dynamic_pages'),
+        _types: path.resolve(__dirname, 'src/types'),
       },
     },
   })
@@ -28,7 +28,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode })
+    const filePathToArray = createFilePath({ node, getNode }).split('/')
+    filePathToArray.splice(1, 1)
+
+    const slug = filePathToArray.join('/')
 
     createNodeField({ node, name: 'slug', value: slug })
   }

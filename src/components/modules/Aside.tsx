@@ -1,60 +1,68 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { ReadOutlined, ClockCircleOutlined } from '@ant-design/icons'
 
-import Logo from 'components/atoms/Logo'
-import Menu from 'components/atoms/Menu'
-import MenuItem from 'components/atoms/MenuItem'
+import Logo from '_components/atoms/Logo'
+import Menu from '_components/atoms/Menu'
+import MenuItem from '_components/atoms/MenuItem'
 
 import {
   ContentsListNodeType,
   ContentFrontmatterType,
-} from 'types/contents.types'
+} from '_types/contents.types'
 
+type listType = {
+  id: string
+  slug: string
+  tableOfContents: string
+} & ContentFrontmatterType
 type AsideProps = {
   menuList: ContentsListNodeType[]
 }
-type menuType = ContentFrontmatterType & {
-  id: string
-  slug: string
-}
-
-const getMenu = (list: ContentsListNodeType[]) => {
-  const categoryMap = new Map<string, menuType[]>()
-
-  list.forEach(({ node: { fields, frontmatter, id } }) => {
-    const category: string = frontmatter?.category || ''
-    const menuInfo: menuType = {
-      id,
-      slug: fields.slug,
-      title: frontmatter.title,
-      summary: frontmatter.summary,
-      date: frontmatter.date,
-    }
-
-    if (categoryMap.has(category)) {
-      const arr: menuType[] = categoryMap.get(category) || []
-      arr.push(menuInfo)
-
-      categoryMap.set(category, arr)
-    } else {
-      categoryMap.set(category, [menuInfo])
-    }
-  })
-
-  return [...categoryMap]
-}
 
 function Aside({ menuList }: AsideProps) {
-  const menu = getMenu(menuList)
+  const menuListByCategory = () => {
+    const categoryMap = new Map<string | undefined, listType[]>()
+
+    menuList.forEach(
+      ({ node: { fields, frontmatter, id, tableOfContents } }) => {
+        const { slug } = fields
+        const category = slug.split('/')[1]
+
+        const { title, summary, date } = frontmatter
+
+        const menuInfo: listType = {
+          title,
+          summary,
+          date,
+
+          id,
+          slug,
+          tableOfContents,
+        }
+
+        if (categoryMap.has(category)) {
+          const arr: listType[] = categoryMap.get(category) || []
+          arr.push(menuInfo)
+
+          categoryMap.set(category, arr)
+        } else {
+          categoryMap.set(category, [menuInfo])
+        }
+      },
+    )
+
+    return [...categoryMap]
+  }
+
+  const menuListedByCategory = useMemo(menuListByCategory, [menuList])
 
   return (
-    <div className="bg-base-200 w-80">
+    <div className="bg-base-200 w-80 pb-4">
       <Logo />
 
       <Menu>
         <MenuItem to="/">
           <ReadOutlined style={{ fontSize: '1.5rem' }} />
-
           <span className="flex-1">README</span>
         </MenuItem>
         <MenuItem to="/changelog">
@@ -65,14 +73,14 @@ function Aside({ menuList }: AsideProps) {
 
       <div className="h-4" />
 
-      {menu.map(list => {
+      {menuListedByCategory.map(list => {
         const menuCategory = list[0]
         const menuItem = list[1]
 
         return (
           <Menu key={menuCategory} category={menuCategory}>
-            {menuItem.map(({ id, slug, title }) => (
-              <MenuItem key={id} to={slug}>
+            {menuItem.map(({ id, slug, title, tableOfContents }) => (
+              <MenuItem key={id} to={slug} tableOfContents={tableOfContents}>
                 {title}
               </MenuItem>
             ))}

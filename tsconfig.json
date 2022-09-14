@@ -10,13 +10,13 @@
     "noImplicitReturns": true,
     "baseUrl": "./src",
     "paths": {
-      "components/*": ["./components/*"],
-      "constants/*": ["./constants/*"],
-      "hooks/*": ["./hooks/*"],
-      "styles/*": ["./styles/*"],
-      "pages/*": ["./pages/*"],
-      "dynamic_pages/*": ["./dynamic_pages/*"],
-      "types/*": ["./types/*"]
+      "_components/*": ["./components/*"],
+      "_constants/*": ["./constants/*"],
+      "_hooks/*": ["./hooks/*"],
+      "_styles/*": ["./styles/*"],
+      "_pages/*": ["./pages/*"],
+      "_dynamic_pages/*": ["./dynamic_pages/*"],
+      "_types/*": ["./types/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

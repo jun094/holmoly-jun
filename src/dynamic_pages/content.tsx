@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import PageWrapper from 'components/templates/PageWrapper'
-import ContentHtml from 'components/atoms/ContentHtml'
+import PageWrapper from '_components/templates/PageWrapper'
+import ContentHeader from '_components/atoms/ContentHeader'
+import ContentHtml from '_components/atoms/ContentHtml'
 
-import { ContentItemType } from '../types/contents.types'
+import { ContentItemType } from '_types/contents.types'
 
 type ContentPageProps = ContentItemType
 
@@ -13,11 +14,15 @@ function ContentPage({
     allMarkdownRemark: { edges },
   },
 }: ContentPageProps) {
-  const { html } = edges[0].node
+  const { html, frontmatter } = edges[0].node
+  const { title, date, thumbnail } = frontmatter
 
   return (
     <PageWrapper>
-      <ContentHtml html={html} />
+      <article className="prose px-3 py-24 my-0 mx-auto">
+        <ContentHeader title={title} date={date} image={thumbnail} />
+        <ContentHtml html={html} />
+      </article>
     </PageWrapper>
   )
 }
@@ -32,9 +37,8 @@ export const queryMarkdownDataBySlug = graphql`
           html
           frontmatter {
             title
-            category
             summary
-            date(formatString: "YYYY.MM.DD.")
+            date(formatString: "MMMM DD, YYYY")
             thumbnail {
               publicURL
               childImageSharp {

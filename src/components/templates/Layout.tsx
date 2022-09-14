@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { DRAWER_TOGGLER } from 'constants/index'
+import { DRAWER_TOGGLER } from '_constants/index'
 
 type ChildrenType = {
   children: ReactNode
