@@ -6,22 +6,36 @@ function IndexPage() {
   return (
     <PageWrapper>
       <div className="prose px-2 py-24 my-0 mx-auto">
-        <h1>안녕하세요! Holymoly.jun 입니다. </h1>
+        <h2>About</h2>
         <div className="text-right">
           <sub>
             <i>Last updated: 2022.08.15</i>
           </sub>
         </div>
-        <h3>저는 이런것에 관심이 많습니다 :)</h3>
+        <p>
+          저는 프론트엔드 개발자 holymoly.jun입니다. 현재 구름에서 B2B 서비스와
+          디자인 시스템을 개발하고 있습니다.
+        </p>
+
+        <p>
+          해당 블로그는 JAM Stack을 활용한{' '}
+          <a target="_blank" href="https://www.gatsbyjs.com/">
+            Gatsby.js
+          </a>
+          로 만들어졌습니다. Markdown을 활용해 블로그 포스팅을 하고 있습니다.
+        </p>
+        <hr />
         <ul>
-          <li>사용자 경험 향상에 관심이 많습니다.</li>
-          <li>개발자 경험 향상에 관심이 많습니다.</li>
-          <li>Internal 제품에 관심이 많습니다.</li>
+          <li>
+            GitHub{' '}
+            <a target="_blank" href="https://github.com/jun094">
+              @jun094
+            </a>
+          </li>
+          <li>
+            Email <a href="mailto:cwd094@gmail.com">cwd094@gmail.com</a>
+          </li>
         </ul>
-        <h2>이런 능력이 있어요.</h2>
-        ...
-        <h2>이런 능력이 있어요.</h2>
-        ...
       </div>
     </PageWrapper>
   )
