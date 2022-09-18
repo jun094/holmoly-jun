@@ -7,7 +7,10 @@ function useContentsList(): ContentsListNodeType[] {
     allMarkdownRemark: { edges },
   }: ContentsListType = useStaticQuery(graphql`
     query getContentsList {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fields: { slug: { ne: "/" } } }
+      ) {
         edges {
           node {
             id
