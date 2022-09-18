@@ -1,6 +1,6 @@
 {
   "name": "holymoly-jun",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "private": true,
   "description": "holymoly-jun",
   "author": "jun094",
@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "release": "standard-version"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -50,6 +51,7 @@
     "gatsby-plugin-postcss": "^5.19.0",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^3.1.6",
     "typescript": "^4.7.4"
   }
