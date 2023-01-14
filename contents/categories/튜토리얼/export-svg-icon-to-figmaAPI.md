@@ -2,7 +2,7 @@
 date: '2022-04-24'
 title: 'Figma API로 아이콘 추출하기'
 summary: 'Figma API로 Storybook과 Figma의 아이콘을 동기화시키는 작업을 진행해봤습니다.'
-thumbnail: './images/export-svg-icon-to-figmaAPI-thumbnail.png'
+thumbnail: './images/FigmaAPI_thumbnail.png'
 ---
 
 # 개요
@@ -65,7 +65,7 @@ thumbnail: './images/export-svg-icon-to-figmaAPI-thumbnail.png'
 
 ### STEP 1 : Figma Token 생성
 
-![](https://velog.velcdn.com/images/jun094/post/22c6c968-1881-4c18-9c3f-a2c64aa67f64/image.png)
+![step1](./images/FigmaAPI_STEP_1.png)
 
 Figma REST API를 사용하기 위해서는 개인 token값이 필요합니다. Token 아래 과정을 통해 생성 가능합니다.
 
@@ -75,7 +75,7 @@ Figma REST API를 사용하기 위해서는 개인 token값이 필요합니다. 
 
 ### STEP 2 : Figma FileKey와 NodeId 생성
 
-![](https://velog.velcdn.com/images/jun094/post/c36c41cc-789c-4b9c-8caa-df1113bba6ec/image.png)
+![step2](./images/FigmaAPI_STEP_2.png)
 
 FigmaAPI를 사용하기 위해서는 사용하려는 파일의 `FileKey`와 여러 Node들 중에 특정 Node의 정보를 원한다면 `NodeId`가 필요합니다. 만약, 해당 페이지 전체 Node들의 정보를 원한다면 음영(회색) 부분을 클릭하면 됩니다.
 
@@ -89,12 +89,12 @@ FileKey와 NodeId 값은 상단 이미지에서 보이듯이 URL에서 확인이
 
 ### STEP 3 : 아이콘들을 모두 컴포넌트 정의하기
 
-![](https://velog.velcdn.com/images/jun094/post/b604c97a-5288-42ca-9515-8bcf3c4db511/image.png)
+![step3-1](./images/FigmaAPI_STEP_3_1.png)
 Figma API에서 데이터 파싱으 용이하시 위해서는 Node들을 특정 Type으로 정의해주는게 좋습니다. 그래서, 저는 피그마 단에서 아이콘들을 모두 `COMPONENT`로 정의해주었습니다.
 
 > 각각의 Node들은 모두 [Type](https://www.figma.com/developers/api#node-types)( `DOCUMENT`, `CANVAS`, `TEXT`, `COMPONENT`, ... )들을 가지고 있습니다.
 
-![](https://velog.velcdn.com/images/jun094/post/26fbcc6f-c51a-453a-9da9-eb23ed68e641/image.png)
+![step3-2](./images/FigmaAPI_STEP_3_2.png)
 
 Figma에서 여러개 Node들을 한꺼번에 컴포넌트로 변경하려면, `Create multiple components` 기능을 사용하면 됩니다. (좌: `INSTANCE`, 우: `COMPONENT`)
 

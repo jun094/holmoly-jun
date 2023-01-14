@@ -2,7 +2,7 @@
 date: '2021-04-06'
 title: '창업을 통해 배운 최신 프레임워크보다 중요한 것'
 summary: '창업을 통해 배우고 느낀점에 대하여 회고해보았다.'
-thumbnail: './images/learn-to-founded-thumbnail.png'
+thumbnail: './images/learn_to_founded_thumbnail.png'
 ---
 
 # 블로그를 시작한 이유
@@ -17,7 +17,7 @@ thumbnail: './images/learn-to-founded-thumbnail.png'
 ### 설레이는 시작
 
 2019년 9월, 지금의 CEO이자 기획자였던 오래된 친구가 연락을 해왔다. 친구는 개발 전공이 아니였기 때문에 에듀테크 사업을 하기 위해 나에게 조언을 구해왔다. 이후, 지속적인 소통이 이어지면서, 자연스럽게 해당 아이템에 대해 관심과 애정이 생기게 되었고, 결국 2019년 11월에 공동 창업을 하기로 하였다. 처음에는 사업계획서와 아이템 소개 페이지를 만들었고, 백엔드 개발자를 추가로 영입하게 되었다. 이후 2020년 3월, 우리는 서울대학교 창업 인큐베이팅 프로그램에 합격하면서 본격적으로 사무실을 얻었고, 나는 풀스택 개발자로서 서비스 개발을 시작하였다.
-![](https://images.velog.io/images/jun094/post/71da4d08-4c4f-4ce0-a5dd-8ca6979baa04/Frame%209.png)
+![Eduity 배너](./images/learn_to_founded_eduity_banner.png)
 
 ### 뼈아픈 창업 실패
 

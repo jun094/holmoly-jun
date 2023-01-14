@@ -2,7 +2,7 @@
 date: '2021-04-08'
 title: '서버통신부터 DOM의 등장까지'
 summary: '서버 통신 공부를 하다보니, 자연스럽게 JavaScript DOM 의 등장 배경을 알 수 있었다.'
-thumbnail: './images/server-to-DOM-thumbnail.png'
+thumbnail: './images/server_to_DOM_thumbnail.png'
 ---
 
 > 나는 상대적으로 SPA 서비스를 일찍 접하게 되면서,정적웹 방식의 서비스를 많이 보지도 못했으며, 개발해 볼 일이 적었다. 이렇게 되면서, 자연스럽게 과거의 HTTP 통신과 관련된 깊은 내용에 대해서는 그냥 넘어가는 경우가 많았다.
@@ -17,7 +17,7 @@ thumbnail: './images/server-to-DOM-thumbnail.png'
 HTTP는 HyperText Transfer Protocal의 약자로써, 하이퍼 본문 전송 통신 규약 또는 약속을 말한다. Web에서 가장 중요한 통신 규칙이다.
 
 HTTP는 추상적인 개념으로써, **클라이언트**와 **서버** 간에 이루어지는 의사소통이다. 소통 도구는 **request header**(요청 메시지)와 **response header**(응답 메시지)를 통해 이루어지며, 주로 html을 주고 받는다.
-![](<https://images.velog.io/images/jun094/post/b00b36f4-4749-4160-bf59-7bdb6302ca68/Group%201%20(2).png>)
+![HTTP 기본 통신 방식](./images/server_to_DOM_1.png)
 
 <br/>
 
@@ -25,13 +25,13 @@ HTTP는 추상적인 개념으로써, **클라이언트**와 **서버** 간에 �
 
 Request Headers는 **Message Header**와 **Message Body**로 구성되어있다. Message Header에는 메소드 방식(ex. GET, POST, ..), 파일 이름, 그리고 Http 버전 정보가 담겨져있으며, Message Body에는 host를 포함한 여러 개의 정보가 담겨져있다.
 
-![](https://images.velog.io/images/jun094/post/56324ec1-081e-47b0-adad-4da016490df6/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-04-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.08.57.png)
+![HTTP Request Header](./images/server_to_DOM_2.png)
 
 <br/>
 
 ### 1.2 Response Headers (server->client)
 
-![](https://images.velog.io/images/jun094/post/0ff3291e-edd4-436e-8141-1632e299a932/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-04-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.09.36.png)
+![HTTP Response Format](./images/server_to_DOM_3.png)
 Response Headers에는 Http 버전, 상태코드, 그리고 content-type 등이 포함되어있다. 여기서 **상태코드**는 번호대로 응답 상태에 대해서 말해주기 때문에, 웹 프로그래밍 개발 시 매우 중요한 요소이다. (ex. 404: 존재하지 않는 페이지 접근, 405 : admin 페이지 접근 )
 
 ```
@@ -96,7 +96,8 @@ Response Headers에는 Http 버전, 상태코드, 그리고 content-type 등이 
 
 ### 2.2 AJAX 통신 기법
 
-![](https://images.velog.io/images/jun094/post/44ca51bf-4da6-4555-8db1-5061a36c16af/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-04-21%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.01.30.png)
+![AJax 기본 통신 방식](./images/server_to_DOM_4.png)
+
 AJAX는 비동기 프로그래밍 방식 중 하나이다. AJAX 엔진은 서버에 데이터 요청 후 업데이트가 이루어질 때 페이지 전체가 아닌, 일부만 리로드 한다. 또한, 서버에 요청하고 응답받는 시간 동안에 독립적으로 다른 작업을 할 수 있게 도와준다.
 
 AJAX 엔진은 **Object(객체)** 를 활용해 서버와 상호작용하게 되며, **일부분**만 변경한다. 여기서 객체는 `XMLHttpRequest` 객체이며, 일부분은 `DOM` 을 말한다.
