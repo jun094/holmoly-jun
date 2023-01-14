@@ -20,7 +20,6 @@ function IndexPage({
 }: IndexPageProps) {
   const { html } = nodes[0]
 
-  console.log(html)
   return (
     <PageWrapper>
       <div className="prose px-2 py-24 my-0 mx-auto">

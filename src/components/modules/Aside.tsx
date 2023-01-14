@@ -66,10 +66,12 @@ function Aside({ menuList }: AsideProps) {
           <ReadOutlined style={{ fontSize: '1.5rem' }} />
           <span className="flex-1">README</span>
         </MenuItem>
+
+        {/* TODO: v2.0.0 릴리즈하면 Changelog 다시 노출시키기
         <MenuItem to="/changelog">
           <ClockCircleOutlined style={{ fontSize: '1.5rem' }} />
           <span className="flex-1">CHANGELOG</span>
-        </MenuItem>
+        </MenuItem> */}
       </Menu>
 
       <div className="h-4" />
