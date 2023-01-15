@@ -8,16 +8,16 @@ type MarkdownDataType = {
   id: string
   html: string
 }
-type IndexPageProps = {
+type ChangeLogPageProps = {
   data: {
     allMarkdownRemark: { nodes: MarkdownDataType[] }
   }
 }
-function IndexPage({
+function ChangeLogPage({
   data: {
     allMarkdownRemark: { nodes },
   },
-}: IndexPageProps) {
+}: ChangeLogPageProps) {
   const { html } = nodes[0]
 
   return (
@@ -29,11 +29,13 @@ function IndexPage({
   )
 }
 
-export default IndexPage
+export default ChangeLogPage
 
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataByChangelog {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/CHANGELOG/" } }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/__about/CHANGELOG/" } }
+    ) {
       nodes {
         id
         html
