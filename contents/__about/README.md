@@ -1,3 +1,8 @@
+---
+date: '2023-01-15'
+title: 'about'
+---
+
 # Holymoly Jun Blog
 
 > 일해라 최주녕. 기록해라 최주녕. 공부해라 최주녕.
