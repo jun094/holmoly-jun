@@ -2,7 +2,7 @@
 date: '2021-06-17'
 title: '정적 웹에서 SSR의 등장까지'
 summary: '정적 웹에서 SSR 방식이 등장하기까지 시간 순으로 정리해보았다.'
-thumbnail: './images/staticWEB-to-SSR-thumbnail.png'
+thumbnail: './images/staticWEB_to_SSR_thumbnail.png'
 ---
 
 # 구분 방식으로 나열
@@ -77,7 +77,7 @@ thumbnail: './images/staticWEB-to-SSR-thumbnail.png'
 - 페이지 이동시, 해당 Html 파일 전체를 서버로부터 받아옴.
 - ex. 전통적인 신문사 홈페이지, 상호작용이 없는 소개 페이지
 
-![](https://images.velog.io/images/jun094/post/937e6bd8-8b17-4000-a678-63f08849c45c/Group%2012.png)
+![정적 웹 통신 방식](./images/staticWEB_to_SSR_1.png)
 
 <br/>
 
@@ -88,7 +88,7 @@ thumbnail: './images/staticWEB-to-SSR-thumbnail.png'
 - XMLHttpRequest와 DOM의 등장으로 부분 변경이 가능해짐. [[more]](https://velog.io/@jun094/서버통신부터-DOM의-등장까지)
 - 필요한 데이터만 JSON형식으로 받아온 뒤, DOM API로 필요한 html 부분에 접근하여 업데이트해줌.
 
-![](<https://images.velog.io/images/jun094/post/45b5a65d-1846-47db-906e-3f1b67bc9a2a/Group%2012%20(1).png>)
+![동적 웹 통신 방식](./images/staticWEB_to_SSR_2.png)
 
 <br/>
 
@@ -100,7 +100,7 @@ thumbnail: './images/staticWEB-to-SSR-thumbnail.png'
 - **한 페이지** 내에서 서비스가 가능한 어플리케이션**(SPA)** 등장 ex.구글 지도
 - 프레임워크의 등장(Angular, React 등)으로 한 개의 html 파일로 **여러 페이지** 렌더링 가능해짐 -> CSR 방식
 
-![](https://images.velog.io/images/jun094/post/fcaa46b9-f304-4b8b-bd2e-9351661a2a5c/Group%2013.png)
+![CSR 통신 방식](./images/staticWEB_to_SSR_3.png)
 
 <br/>
 
@@ -112,7 +112,7 @@ thumbnail: './images/staticWEB-to-SSR-thumbnail.png'
 - 정적웹에서 착안한 렌더링 방식인 SSR 등장.
 - Server측에서 필요한 데이터가 포함된 html을 만듦 -> 해당 html과 동적제어가 가능한 JS파일을 함께 client에게 보냄.
 
-![](https://images.velog.io/images/jun094/post/932bc711-c959-47e8-a2de-00239e6415c4/Group%2015.png)
+![SSR 통신 방식](./images/staticWEB_to_SSR_4.png)
 
 <br/><br/>
 

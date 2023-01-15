@@ -1,5 +1,5 @@
 // Webpack Config
-
+const { execSync } = require('child_process')
 const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -28,10 +28,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
+    const gitAuthorTime = execSync(
+      `git log -1 --pretty=format:%aI ${node.fileAbsolutePath}`,
+    ).toString()
+
+    console.log('gitAuthorTime', node.fileAbsolutePath, ' : ', gitAuthorTime)
+
     const filePathToArray = createFilePath({ node, getNode }).split('/')
     filePathToArray.splice(1, 1)
 
     const slug = filePathToArray.join('/')
+    console.log(gitAuthorTime)
 
     createNodeField({ node, name: 'slug', value: slug })
   }
