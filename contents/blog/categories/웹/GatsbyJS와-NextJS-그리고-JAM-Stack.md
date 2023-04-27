@@ -118,8 +118,6 @@ thumbnail: './images/JAMStack_thumbnail.png'
 - 다양한 Headless CMS 선택지가 필요한 경우
   ![Gatsby 예시](./images/Gatsby_예시.png)
 
-## <br/>
-
 <br/>
 
 # JAM Stack 생태계
