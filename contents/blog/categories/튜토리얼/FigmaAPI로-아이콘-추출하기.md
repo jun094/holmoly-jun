@@ -126,6 +126,7 @@ API를 요청하기 위해서는 HTTP Request Header에 figma token을 실어 �
 
 ```javascript
 // scripts/figmaApi.js
+const api = require('axios');
 
 const FIGMA_TOKEN = 'xxx-xxx-xxx'
 const FILE_KEY = 'xxx-xxx-xxx'
